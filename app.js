@@ -20,5 +20,11 @@ app.put('/users/:id', db.updateUser)
 app.delete('/users/:id', db.deleteUser)
 app.get('/createTable', db.createTable)
 app.listen(port, () => {
+  process.env['DB_URL']='localhost'
+  process.env['DB_USER']='girish'
+  process.env['DB_NAME']='girish'
+  process.env['DB_PASSWORD']='giri@123'
+  process.env['DB_PORT']=5432
   console.log(`App running on port ${port}.`)
+  db.createDBpool()
 })
